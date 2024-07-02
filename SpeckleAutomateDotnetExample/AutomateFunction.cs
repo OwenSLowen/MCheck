@@ -28,10 +28,11 @@ public static class AutomateFunction
 
         // ...
 
-        FileInfo fi = new FileInfo("C:\\Users\\921907\\github\\ModelCheck_Classifications_Naming\\mcheck.xlsx");
+        FileInfo fi = new FileInfo("C:\temp\\mcheck.xlsx");
         if (fi.Exists)
         {
-            System.Diagnostics.Process.Start(@"C:\Users\921907\github\ModelCheck_Classifications_Naming\mcheck.xlsx");
+            System.Diagnostics.Process.Start(@"C:\temp\\mcheck.xlsx");
+            Console.WriteLine("where is my excel?");
         }
 
         if (count < functionInputs.SpeckleTypeTargetCount) {
