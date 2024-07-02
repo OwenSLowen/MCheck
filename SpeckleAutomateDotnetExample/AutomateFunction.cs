@@ -32,8 +32,8 @@ public static class AutomateFunction
        
 
         // Add a new worksheet to the Excel object.
-        Worksheet worksheet = workbook.Worksheets.Add("MySheet");
-        worksheet.Cells["A1"].PutValue("Hello, World!");
+       // Worksheet worksheet = workbook.Worksheets.Add("MySheet");
+       // worksheet.Cells["A1"].PutValue("Hello, World!");
     if (count < functionInputs.SpeckleTypeTargetCount) {
       automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
       return;
