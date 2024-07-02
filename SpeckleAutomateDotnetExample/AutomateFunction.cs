@@ -1,7 +1,7 @@
 using Objects;
 using Speckle.Automate.Sdk;
 using Speckle.Core.Models.Extensions;
-using Microsoft.Office.Interop.Excel;
+using System.Data.OleDb;
 
 public static class AutomateFunction
 {
@@ -23,18 +23,18 @@ public static class AutomateFunction
       .Count(b => b.speckle_type == functionInputs.SpeckleTypeToCount);
 
     Console.WriteLine($"Counted {count} objects");
-        string target = "https://www.microsoft.com";
-        System.Diagnostics.Process.Start(target);
 
-        // Instantiate a Workbook object.
-        Workbook workbook = new Workbook();
-       
-       
+        
 
-        // Add a new worksheet to the Excel object.
-       // Worksheet worksheet = workbook.Worksheets.Add("MySheet");
-       // worksheet.Cells["A1"].PutValue("Hello, World!");
-    if (count < functionInputs.SpeckleTypeTargetCount) {
+        // ...
+
+        FileInfo fi = new FileInfo("C:\\Users\\921907\\github\\ModelCheck_Classifications_Naming\\mcheck.xlsx");
+        if (fi.Exists)
+        {
+            System.Diagnostics.Process.Start(@"C:\Users\921907\github\ModelCheck_Classifications_Naming\mcheck.xlsx");
+        }
+
+        if (count < functionInputs.SpeckleTypeTargetCount) {
       automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
       return;
     }
