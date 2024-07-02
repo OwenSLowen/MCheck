@@ -1,6 +1,7 @@
 using Objects;
 using Speckle.Automate.Sdk;
 using Speckle.Core.Models.Extensions;
+using Excel = Microsoft.Office.Interop.Excel;
 
 public static class AutomateFunction
 {
