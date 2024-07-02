@@ -1,3 +1,4 @@
+using Microsoft.Office.Interop.Excel;
 using Objects;
 using Speckle.Automate.Sdk;
 using Speckle.Core.Models.Extensions;
@@ -23,8 +24,12 @@ public static class AutomateFunction
       .Count(b => b.speckle_type == functionInputs.SpeckleTypeToCount);
 
     Console.WriteLine($"Counted {count} objects");
+    Console.WriteLine("Finding excel?");
 
-        
+        Application excel = new Application();
+
+        // Open the workbook
+        Workbook wb = excel.Workbooks.Open("C:\\temp\\mcheck.xlsx");
 
         // ...
 
