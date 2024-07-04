@@ -26,8 +26,8 @@ public static class AutomateFunction
 
     Console.WriteLine($"Counted {count} objects whut");
 
-        string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
-        string content = File.ReadAllText(filePath);
+        string filePath = @"C:\temp\checkm2.txt"; // Replace with your actual file path
+        //string content = File.ReadAllText(filePath);
         File.WriteAllText(filePath, "Hello, this is the content of my new file!");
 
 
