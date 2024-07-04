@@ -3,6 +3,7 @@ using Objects;
 using Speckle.Automate.Sdk;
 using Speckle.Core.Models.Extensions;
 using System;
+using System.Diagnostics;
 using System.IO;
 
 public static class AutomateFunction
@@ -29,6 +30,10 @@ public static class AutomateFunction
         string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
         //string content = File.ReadAllText(filePath);
         File.WriteAllText(filePath, "Hello, this is the content of my new file!");
+        string urlToOpen = "https://www.msn.com";
+
+        // Start Microsoft Edge with the specified URL
+        Process.Start("msedge", urlToOpen);
 
 
 
