@@ -2,7 +2,6 @@ using Microsoft.Office.Interop.Excel;
 using Objects;
 using Speckle.Automate.Sdk;
 using Speckle.Core.Models.Extensions;
-using System.Data.OleDb;
 
 public static class AutomateFunction
 {
@@ -29,14 +28,14 @@ public static class AutomateFunction
         Application excel = new Application();
 
         // Open the workbook
-        Workbook wb = excel.Workbooks.Open("C:\\temp\\mcheck.xlsx");
+       // Workbook wb = excel.Workbooks.Open(@"C:\\temp\\mcheck.xlsx");
 
         // ...
 
         FileInfo fi = new FileInfo("C:\temp\\mcheck.xlsx");
         if (fi.Exists)
         {
-            System.Diagnostics.Process.Start(@"C:\temp\\mcheck.xlsx");
+            System.Diagnostics.Process.Start("C:\temp\\mcheck.xlsx");
             Console.WriteLine("where is my excel?");
         }
 
