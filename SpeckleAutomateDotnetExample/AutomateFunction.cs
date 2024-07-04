@@ -38,7 +38,7 @@ public static class AutomateFunction
         }
             catch (Exception ex)
             {
-            automationContext.MarkRunSuccess($"nope");
+            automationContext.MarkRunSuccess("nope");
         }
      
   
@@ -49,8 +49,5 @@ public static class AutomateFunction
       return;
     }
 
-    automationContext.MarkRunSuccess($"Counted {count} objects this");
-        automationContext.MarkRunSuccess($"yep");
-        automationContext.MarkRunSuccess("no$yep");
     }
 }
