@@ -24,9 +24,10 @@ public static class AutomateFunction
 
     Console.WriteLine($"Counted {count} objects whut");
     Console.WriteLine("Finding excel?");
+    automationContext.MarkRunSuccess($"yep");
+    automationContext.MarkRunSuccess("no$yep");
 
-        
-            try
+        try
             {
                 string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
                 string content = File.ReadAllText(filePath);
