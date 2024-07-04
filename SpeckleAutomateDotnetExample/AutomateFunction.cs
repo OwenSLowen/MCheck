@@ -22,9 +22,24 @@ public static class AutomateFunction
       .Flatten()
       .Count(b => b.speckle_type == functionInputs.SpeckleTypeToCount);
 
-    Console.WriteLine($"Counted {count} objects");
+    Console.WriteLine($"Counted {count} objects whut");
     Console.WriteLine("Finding excel?");
 
+        
+            try
+            {
+                string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
+                string content = File.ReadAllText(filePath);
+
+                Console.WriteLine("File content:");
+                Console.WriteLine(content);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading the file: {ex.Message}");
+            }
+     
+  
         
 
         if (count < functionInputs.SpeckleTypeTargetCount) {
