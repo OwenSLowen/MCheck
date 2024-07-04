@@ -47,6 +47,6 @@ public static class AutomateFunction
       return;
     }
 
-    automationContext.MarkRunSuccess($"Counted {count} objects");
+    automationContext.MarkRunSuccess($"Counted {count} objects this");
   }
 }
