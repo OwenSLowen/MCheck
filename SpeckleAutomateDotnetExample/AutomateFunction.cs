@@ -36,7 +36,8 @@ public static class AutomateFunction
         }
             catch (Exception ex)
             {
-            automationContext.MarkRunSuccess(filePath);
+            string content = File.ReadAllText(filePath);
+            automationContext.MarkRunSuccess(content);
         }
      
   
