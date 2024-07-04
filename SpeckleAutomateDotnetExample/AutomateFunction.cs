@@ -37,7 +37,7 @@ public static class AutomateFunction
         }
             catch (Exception ex)
             {
-            automationContext.MarkRunSuccess("nope");
+            automationContext.MarkRunSuccess($"nope");
         }
      
   
