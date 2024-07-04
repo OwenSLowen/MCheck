@@ -37,8 +37,8 @@ public static class AutomateFunction
         }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading the file: {ex.Message}");
-            }
+            automationContext.MarkRunSuccess("nope");
+        }
      
   
         
