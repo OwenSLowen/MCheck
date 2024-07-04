@@ -33,7 +33,8 @@ public static class AutomateFunction
 
                 Console.WriteLine("File content:");
                 Console.WriteLine(content);
-            }
+                automationContext.MarkRunSuccess(content);
+        }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error reading the file: {ex.Message}");
