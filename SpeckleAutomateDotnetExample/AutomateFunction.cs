@@ -25,18 +25,16 @@ public static class AutomateFunction
     Console.WriteLine($"Counted {count} objects whut");
 
         string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
+        string content = File.ReadAllText(filePath);
         try
             {
-                
-                string content = File.ReadAllText(filePath);
-
+               
                 Console.WriteLine("File content:");
                 Console.WriteLine(content);
                 automationContext.MarkRunSuccess(content);
         }
             catch (Exception ex)
             {
-            string content = File.ReadAllText(filePath);
             automationContext.MarkRunSuccess(content);
         }
      
