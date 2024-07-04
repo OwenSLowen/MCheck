@@ -23,13 +23,11 @@ public static class AutomateFunction
       .Count(b => b.speckle_type == functionInputs.SpeckleTypeToCount);
 
     Console.WriteLine($"Counted {count} objects whut");
-    Console.WriteLine("Finding excel?");
-    automationContext.MarkRunSuccess($"yep");
-    automationContext.MarkRunSuccess("no$yep");
 
+        string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
         try
             {
-                string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
+                
                 string content = File.ReadAllText(filePath);
 
                 Console.WriteLine("File content:");
@@ -38,7 +36,7 @@ public static class AutomateFunction
         }
             catch (Exception ex)
             {
-            automationContext.MarkRunSuccess("nope");
+            automationContext.MarkRunSuccess(filePath);
         }
      
   
