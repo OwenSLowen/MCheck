@@ -25,19 +25,7 @@ public static class AutomateFunction
     Console.WriteLine($"Counted {count} objects");
     Console.WriteLine("Finding excel?");
 
-        Application excel = new Application();
-
-        // Open the workbook
-       // Workbook wb = excel.Workbooks.Open(@"C:\\temp\\mcheck.xlsx");
-
-        // ...
-
-        FileInfo fi = new FileInfo("C:\temp\\mcheck.xlsx");
-        if (fi.Exists)
-        {
-            System.Diagnostics.Process.Start("C:\temp\\mcheck.xlsx");
-            Console.WriteLine("where is my excel?");
-        }
+        
 
         if (count < functionInputs.SpeckleTypeTargetCount) {
       automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
