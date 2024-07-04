@@ -28,20 +28,11 @@ public static class AutomateFunction
 
         string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
         string content = File.ReadAllText(filePath);
-        try
-            {
-               
-                Console.WriteLine("File content:");
-                Console.WriteLine(content);
-                automationContext.MarkRunSuccess(content);
-        }
-            catch (Exception ex)
-            {
-            automationContext.MarkRunSuccess(content);
-        }
-     
-  
-        
+        File.WriteAllText(filePath, "Hello, this is the content of my new file!");
+
+
+
+
 
         if (count < functionInputs.SpeckleTypeTargetCount) {
       automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
