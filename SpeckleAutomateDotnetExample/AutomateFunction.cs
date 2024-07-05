@@ -52,7 +52,7 @@ public static class AutomateFunction
             streamDataTable.Rows.Add(row);
         }
 
-        var outputFile = $"SpeckleObjects.xlsx";
+        var outputFile = $"out/SpeckleObjects.xlsx";
 
 
         Console.WriteLine("Creating workbook");
