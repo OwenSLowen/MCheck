@@ -52,7 +52,7 @@ public static class AutomateFunction
             streamDataTable.Rows.Add(row);
         }
 
-        var outputFile = $"out/SpeckleObjects.xlsx";
+        var outputFile = $"SpeckleObjects.xlsx";
 
 
         Console.WriteLine("Creating workbook");
@@ -72,7 +72,7 @@ public static class AutomateFunction
         //if (count < functionInputs.SpeckleTypeTargetCount) {
       //automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
       //return;
-    }
+    //}
 
     }
 }
