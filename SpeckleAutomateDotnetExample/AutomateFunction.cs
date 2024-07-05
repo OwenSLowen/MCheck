@@ -6,9 +6,6 @@ using Speckle.Core.Models.Extensions;
 using ClosedXML;
 using ClosedXML.Excel;
 using System.Data;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using DocumentFormat.OpenXml.Wordprocessing;
-using DocumentFormat.OpenXml.Packaging;
 
 public static class AutomateFunction
 {
@@ -71,10 +68,11 @@ public static class AutomateFunction
         await automationContext.StoreFileResult(outputFile);
 
         automationContext.MarkRunSuccess($"Created report");
-        if (count < functionInputs.SpeckleTypeTargetCount) {
-      automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
-      return;
-    }
+
+        //if (count < functionInputs.SpeckleTypeTargetCount) {
+      //automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
+      //return;
+    //}
 
     }
 }
