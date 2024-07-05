@@ -1,10 +1,13 @@
-using Microsoft.Office.Interop.Excel;
 using Objects;
+using Objects.Geometry;
 using Speckle.Automate.Sdk;
+using Speckle.Core.Logging;
 using Speckle.Core.Models.Extensions;
-using System;
-using System.Diagnostics;
-using System.IO;
+using ClosedXML;
+using ClosedXML.Excel;
+using System.Data;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 public static class AutomateFunction
 {
@@ -27,18 +30,46 @@ public static class AutomateFunction
 
     Console.WriteLine($"Counted {count} objects whut");
 
-        string filePath = @"C:\temp\checkm.txt"; // Replace with your actual file path
-        //string content = File.ReadAllText(filePath);
-        File.WriteAllText(filePath, "Hello, this is the content of my new file!");
-        string urlToOpen = "https://www.msn.com";
+        Console.WriteLine("Creating datatable");
+        var streamDataTable = new DataTable();
+        streamDataTable.TableName = "StreamObjects";
 
-        // Start Microsoft Edge with the specified URL
-        Process.Start("msedge", urlToOpen);
+        var columns = new[] { "Id", "Name", "Speckle Type" };
+
+        foreach (var column in columns)
+        {
+            streamDataTable.Columns.Add(column, typeof(string));
+        }
+
+        foreach (var commit in commitObject.Flatten())
+        {
+            var row = streamDataTable.NewRow();
+
+            foreach (var column in columns)
+            {
+                var property = column.ToLowerInvariant().Replace(' ', '_');
+
+                row[column] = commit[property]?.ToString() ?? "";
+            }
+            streamDataTable.Rows.Add(row);
+        }
+
+        var outputFile = $"out/Speckle Objects.xlsx";
 
 
+        Console.WriteLine("Creating workbook");
+        using (var workbook = new XLWorkbook())
+        {
+            var streams = workbook.Worksheets.Add(streamDataTable);
 
+            Console.WriteLine($"Saving workbook at '{Path.GetFullPath(outputFile)}'");
+            workbook.SaveAs(outputFile);
+        }
 
+        Console.WriteLine("Storing excel file online");
+        await automationContext.StoreFileResult(outputFile);
 
+        automationContext.MarkRunSuccess($"Created report");
         if (count < functionInputs.SpeckleTypeTargetCount) {
       automationContext.MarkRunFailed($"Counted {count} objects where {functionInputs.SpeckleTypeTargetCount} were expected");
       return;
