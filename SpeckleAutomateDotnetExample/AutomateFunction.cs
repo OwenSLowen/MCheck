@@ -8,6 +8,7 @@ using ClosedXML.Excel;
 using System.Data;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml.Packaging;
 
 public static class AutomateFunction
 {
@@ -54,7 +55,7 @@ public static class AutomateFunction
             streamDataTable.Rows.Add(row);
         }
 
-        var outputFile = $"C:/temp/Speckle Objects.xlsx";
+        var outputFile = $"out/Speckle Objects.xlsx";
 
 
         Console.WriteLine("Creating workbook");
